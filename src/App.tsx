@@ -64,7 +64,6 @@ export default function App() {
         onToggleConservative={() => setConservativeCounting((v) => !v)}
         daysAbroadFor={daysAbroadFor}
         onEditTrip={setTripToEdit}
-        onDeleteTrip={deleteTrip}
       />
 
       <button className="fab" onClick={() => setShowAddSheet(true)} aria-label="Add trip">

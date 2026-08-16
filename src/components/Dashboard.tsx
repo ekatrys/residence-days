@@ -15,7 +15,6 @@ interface DashboardProps {
   onToggleConservative: () => void;
   daysAbroadFor: (trip: Trip) => number;
   onEditTrip: (trip: Trip) => void;
-  onDeleteTrip: (id: string) => void;
 }
 
 export function Dashboard({
@@ -25,7 +24,6 @@ export function Dashboard({
   onToggleConservative,
   daysAbroadFor,
   onEditTrip,
-  onDeleteTrip,
 }: DashboardProps) {
   const {
     stats,
@@ -108,7 +106,6 @@ export function Dashboard({
                   trip={trip}
                   daysAbroad={daysAbroadFor(trip)}
                   onEdit={() => onEditTrip(trip)}
-                  onDelete={() => onDeleteTrip(trip.id)}
                 />
               ))}
             </div>

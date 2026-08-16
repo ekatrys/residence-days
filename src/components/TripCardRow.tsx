@@ -6,7 +6,6 @@ interface TripCardRowProps {
   trip: Trip;
   daysAbroad: number;
   onEdit: () => void;
-  onDelete: () => void;
 }
 
 function dateRangeText(trip: Trip): string {
@@ -15,7 +14,7 @@ function dateRangeText(trip: Trip): string {
   return trip.returnDate ? `${fmt(trip.departureDate)} → ${fmt(trip.returnDate)}` : `${fmt(trip.departureDate)} → ...`;
 }
 
-export function TripCardRow({ trip, daysAbroad, onEdit, onDelete }: TripCardRowProps) {
+export function TripCardRow({ trip, daysAbroad, onEdit }: TripCardRowProps) {
   const country = trip.destination ? makeCountry(trip.destination) : null;
 
   return (
@@ -28,16 +27,6 @@ export function TripCardRow({ trip, daysAbroad, onEdit, onDelete }: TripCardRowP
       <span className="days">{daysAbroad}d</span>
       {daysAbroad > 28 && <span className="warning-badge">⚠️ 28+</span>}
       {trip.returnDate === null && <span title="still abroad">✈️</span>}
-      <button
-        className="delete-btn"
-        onClick={(e) => {
-          e.stopPropagation();
-          onDelete();
-        }}
-        aria-label="Delete trip"
-      >
-        🗑
-      </button>
       {trip.tripType === 'business' && <span className="business-badge">💼 Business</span>}
     </div>
   );

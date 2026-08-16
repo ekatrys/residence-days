@@ -374,14 +374,6 @@ button {
   color: var(--orange);
 }
 
-.trip-card .delete-btn {
-  border: none;
-  background: none;
-  color: var(--red);
-  font-size: 12px;
-  cursor: pointer;
-  padding: 4px;
-}
 
 /* Overlap / warning box */
 .warning-box {
