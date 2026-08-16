@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, type ChangeEvent } from 'react';
 import type { Trip } from './models/trip';
 import { useSettings } from './hooks/useSettings';
 import { useTrips } from './hooks/useTrips';
@@ -17,7 +17,7 @@ export default function App() {
   const [importErrors, setImportErrors] = useState<string[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  async function handleImportFile(e: React.ChangeEvent<HTMLInputElement>) {
+  async function handleImportFile(e: ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     e.target.value = '';
     if (!file) return;
